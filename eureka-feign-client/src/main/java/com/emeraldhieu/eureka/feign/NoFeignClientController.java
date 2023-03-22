@@ -20,7 +20,7 @@ public class NoFeignClientController {
     private EurekaClient eurekaClient;
 
     @RequestMapping("/get-greeting-no-feign")
-    public String greeting(Model model) {
+    public String greeting() {
 
         InstanceInfo service = eurekaClient
           .getApplication(SERVICE_NAME)
@@ -34,8 +34,6 @@ public class NoFeignClientController {
 
         ResponseEntity<String> response = new RestTemplate().getForEntity(url, String.class);
 
-        model.addAttribute("greeting", response.getBody());
-
-        return "greeting-view";
+        return response.getBody();
     }
 }
