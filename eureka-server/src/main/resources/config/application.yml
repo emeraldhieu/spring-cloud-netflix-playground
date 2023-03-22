@@ -1,0 +1,11 @@
+server:
+  port: 8761
+eureka:
+  client:
+    # Stop this Eureka instance from registering itself
+    # because this is a registry server.
+    # See See https://stackoverflow.com/questions/57639611/what-is-the-use-of-fetchregistry-property-in-eureka-server#67406801
+    registerWithEureka: false
+    # Do not download information of other service's endpoints
+    # See https://stackoverflow.com/questions/57639611/what-is-the-use-of-fetchregistry-property-in-eureka-server#67406801
+    fetchRegistry: false
